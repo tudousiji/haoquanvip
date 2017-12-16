@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)https://miyu.qq.com/assets/result.html?tab=1&ADTAG=&kw=%E9%9B%B6%E9%A3%9F -->
+<html lang="zh-CN">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="keywords"
+		  content="{if isset($subKeyWords)}{$subKeyWords}{/if}">
+	<meta name="description" content="更懂你的实时优惠播报站-让优惠触手可及">
+	<title>{$cate.cate_name}{if isset($subtitle)}_{$subtitle}{/if}</title>
+	<link rel="dns-prefetch" href="{$host}">
+	<link rel="stylesheet" href="/public/static/css/base.css">
+	<link rel="stylesheet" href="/public/static/css/article_global.css">
+	<link rel="stylesheet" href="/public/static/css/buyinventory_list.css">
+</head>
+<body>
+<div class="container">
+	<!--[if lte IE 7 ]>
+	<div id="J_BrowserUpdate" class="browser-update">
+	</div>
+	<![endif]-->
+	{include file="../../public/header" /}
+	<div class="row recommend-category-header-row">
+		<div class="main">
+			<div class="recommend-category-header" id="R-result-tabs">
+				<ul class="recommend-category-tabs pull-left">
+					{if isset($headerTryCate) && is_array($headerTryCate) && count($headerTryCate)>0}
+					{foreach $headerTryCate as $vo}
+					<a class="result-nav-tab" href="/try/{$vo.id}_1.html"
+					>{$vo.cate_name}</a>
+					{/foreach}
+					{/if}
+				</ul>
+				<div class="recommend-category-update pull-right">
+					为您找到<span id="R-search-keywords" class="font-weight"></span>的搜索结果，共<span
+						id="R-search-num" class="font-weight">{$count}</span>条
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<div class="result-section" >
+		<div class="wrap_960">
+			<div class="fl_lt w648">
+				<div class="list_title">
+					<span><em>{$cate.cate_name}</em></span><cite> <i>{$page}/{$pageList.pageCount}</i>
+				</cite>
+				</div>
+				<div class="list_r">
+
+					{if is_array($list)}
+					{foreach $list as $vo}
+					<dl>
+
+						<dt>
+						<span><a
+								href="/buyinventory/{$vo.id}.html"
+								title="{$vo.title}" target="_blank">{$vo.title}</a></span><cite>
+							{$vo.summary|chinesesubstr=###,0,310}<a
+								href="/buyinventory/{$vo.id}.html"
+								target="_blank">查看全文&gt;&gt;</a></cite>
+							<code>
+								<em>分类：</em><a
+									href="/buyinventory/{$cateId}_{$page}.html"
+									target="_blank" hidefocus="hidefocus">{$cate.cate_name}</a><em>作者：</em>好券vip<em>&nbsp;&nbsp;日期：</em>{$vo.gmtCreate}  <em> 来源：</em>淘宝
+							</code>
+						</dt>
+					</dl>
+
+					{/foreach}
+					{/if}
+
+					{if is_array($list) && count($list)>0}
+					<div class="pagination-cont" style="margin-top:30px">
+						<ul class="pagination" id="R-pagination">
+							{if $pageList.startPage!=$pageList.nowPage}
+							<li class="prev"><a
+									href="/buyinventory/{$cateId}_{$pageList.startPage}.html">&lt;</a></li>
+							{/if}
+							{foreach name="$pageList.page" item="vo" }
+							<li class="page {if $vo==$pageList.nowPage} active {/if}"><a
+									href="/buyinventory/{$cateId}_{$vo}.html">{$vo}</a></li>
+							{/foreach}
+							{if $pageList.endPage!=$pageList.nowPage}
+							<li class="next"><a
+									href="/buyinventory/{$cateId}_{$pageList.pageCount}.html">&gt;</a></li>
+							{/if}
+						</ul>
+					</div>
+					{/if}
+				</div>
+			</div>
+			<div class="fl_rt w300">
+
+				{if isset($randTryList) && is_array($randTryList) && count($randTryList)>0}
+				<div class="rec-tuijian">
+					<div class="tuijian-tl">
+						<ul>
+							<li class="cur" index="0"><a href="javascript:;">最新推荐</a><i
+									class="xia-icon"></i></li>
+
+						</ul>
+					</div>
+					<div class="tuijian-txt">
+						<ul class="r-tops">
+							{volist name="randTryList" id="vo" }
+							{if $i==1}
+							<div class="top-ranks">
+								<a title="{$vo.data.item.title}"
+								   href="/try/{$vo.id}.html"
+								   target="_blank"><img
+										src="{$taobao_img_url}tfscom/{$vo.data.item.picUrl}{$img_size.small}"><span
+										class="rank-cons"><b>{$vo.data.item.title|chinesesubstr=###,0,36}</b>
+										<p>{$vo.introduction|chinesesubstr=###,0,350}</p></span></a>
+							</div>
+							{else /}
+							<li><a title="{$vo.data.item.title}"
+								   href="/try/{$vo.id}.html"
+								   target="_blank">{$vo.data.item.title|chinesesubstr=###,0,36}</a></li>
+							{/if}
+							{/volist}
+						</ul>
+					</div>
+
+				</div>
+				{/if}
+
+
+				{if isset($randGoodsList) && is_array($randGoodsList) && count($randGoodsList)>0}
+
+				<div class="rec-tuijian">
+					<div class="tuijian-tl">
+						<ul>
+							<li class="cur" index="0"><a href="javascript:;">精彩推荐</a><i
+									class="xia-icon"></i></li>
+
+						</ul>
+					</div>
+					<div class="tuijian-txt">
+						<ul class="r-tops">
+							{volist name="randGoodsList" id="vo" }
+							{if $i==1}
+							<div class="top-ranks">
+								<a title="{$vo.title}"
+								   href="/goods/{$vo.itemId|urlIdcode=###,true}.html"
+								   target="_blank"><img
+										src="{$taobao_img_url}{$vo.pictUrl}{$img_size.small}"><span
+										class="rank-cons"><b>{$vo.title|strip_tags=###|chinesesubstr=###,0,36}</b>
+										<p>{$vo.reason|chinesesubstr=###,0,350}</p></span></a>
+							</div>
+							{else /}
+							<li><a title="{$vo.title}"
+								   href="/goods/{$vo.itemId|urlIdcode=###,true}.html"
+								   target="_blank">{$vo.title|strip_tags=###|chinesesubstr=###,0,36}</a></li>
+							{/if}
+							{/volist}
+						</ul>
+					</div>
+
+				</div>
+				{/if}
+			</div>
+		</div>
+	</div>
+</div>
+{include file="../../public/footer" /}
+
+</body>
+
+</html>

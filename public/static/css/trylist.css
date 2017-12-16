@@ -1,0 +1,271 @@
+@charset "utf-8"; 
+
+.result-info-title {
+	height: 40px;
+	line-height: 40px
+}
+
+.result-nav-tabs {
+	margin-bottom: 10px;
+	overflow: hidden
+}
+
+.result-nav-tab {
+	float: left;
+	line-height: 40px;
+	margin-right: 20px;
+	font-size: 14px;
+	padding: 0 10px;
+	cursor: pointer
+}
+
+.result-nav-tab.active {
+	border-bottom: 1px solid #be1515;
+	color: #be1515
+}
+
+.result-nav-tab:hover {
+	color: #be1515
+}
+
+.result-tab-content {
+	width: 100%;
+	float: left;
+	display: none
+}
+
+.result-tab-content.active {
+	display: block
+}
+
+.result-tab-pane {
+	float: left
+}
+
+#R-god .result-tab-pane {
+	width: 900px
+}
+
+#R-cbg .result-tab-pane {
+	width: 1245px
+}
+
+.M-today-fresh {
+	text-decoration: underline !important
+}
+
+.feature-friend-link {
+	background-color: #fff;
+	overflow: hidden;
+	width: 323px
+}
+
+.feature-friend-link a {
+	width: 107px;
+	display: block;
+	float: left;
+	text-align: center;
+	height: 60px;
+	border-left: 1px solid #e0e0df;
+	border-top: 1px solid #e0e0df
+}
+
+.feature-friend-link img {
+	line-height: 61px
+}
+
+.feature-today {
+	display: block;
+	width: 670px;
+	float: left;
+	position: relative
+}
+
+.feature-sidebar {
+	display: block;
+	width: 320px;
+	float: right
+}
+
+.feature-today-info {
+	padding: 21px
+}
+
+#R-result-tabs .result-nav-tab.active {
+	border-bottom: none
+}
+
+.item-right-bottom .d-goods-support {
+	position: absolute;
+	right: 120px;
+	bottom: 4px
+}
+
+.feature-items-header {
+	overflow: hidden;
+	background-color: #fff8ef;
+	border-top: 1px solid #ff6000
+}
+
+.feature-items-header .feature-items-td {
+	line-height: 50px !important;
+	font-size: 16px !important;
+	color: #000 !important;
+	font-weight: 700
+}
+
+.feature-items-tr {
+	background-color: #fff;
+	margin-bottom: 1px;
+	height: 132px;
+	position: relative
+}
+
+.feature-items-td {
+	float: left;
+	text-align: center;
+	line-height: 132px;
+	font-size: 14px;
+	position: relative
+}
+
+.feature-items-td[index="0"] {
+	line-height: 130px;
+	width: 132px;
+	text-align: center
+}
+
+.feature-items-td[index="1"] {
+	width: 300px;
+	text-align: left;
+	margin-left: 20px;
+	line-height: normal;
+	position: relative;
+	height: 132px
+}
+
+.feature-items-td[index="2"] {
+	width: 120px;
+	font-size: 16px;
+	color: #ff4958
+}
+
+.feature-items-td[index="3"] {
+	width: 80px
+}
+
+.feature-items-td .td-discount {
+	background-color: #ff4958;
+	color: #fff;
+	padding: 1px 9px
+}
+
+.feature-items-td[index="4"] {
+	width: 100px
+}
+
+.feature-items-td[index="5"] {
+	line-height: normal;
+	width: 118px
+}
+
+.feature-items-td[index="5"] .feature-items-td5-container {
+	margin-top: 57px
+}
+
+.feature-items-td .item-title {
+	margin-top: 11px;
+	font-size: 14px
+}
+
+.item-col2-bottom {
+	position: relative;
+	margin-left: 20px;
+	float:left;
+	top: 54px;
+	width: 300px;
+	line-height: 18px;
+	font-size: 12px
+}
+
+.trend-icon {
+	width: 22px;
+	height: 14px;
+	background:
+		url(https://s.pc.qq.com/guanjia/gjalpha/file/e2/d9/e2d9b25d4a5bdeb45c54b29969c638b5.png)
+		no-repeat #fff;
+	vertical-align: top
+}
+
+.trend-icon[val="-1"] {
+	background-position: -378px -132px
+}
+
+.trend-icon[val="0"] {
+	height: 13px;
+	background-position: -346px -132px
+}
+
+.trend-icon[val="1"] {
+	height: 13px;
+	background-position: -313px -132px
+}
+
+.item-price-trend-area {
+	left: -203px;
+	top: 26px
+}
+
+.item-price-trend-area:before {
+	content: '';
+	display: block;
+	position: absolute;
+	left: 50%;
+	margin-left: -8px;
+	top: -10px;
+	width: 0;
+	height: 0;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-bottom: 10px solid #ececec
+}
+
+.feature-today {
+	background-color: #e9eae8
+}
+
+.item_cat {
+	color: #ff4958 !important;
+	border: 1px solid #ff4958;
+	padding: 0 6px;
+	margin-right: 10px;
+	vertical-align: top;
+	font-size: 12px
+}
+
+.item_title {
+	margin-top: 20px;
+	color: #333;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 24px;
+	max-height: 60px;
+	position: absolute;
+	left: 0;
+	top: 0
+}
+
+.feature-items-td-right{
+	width: auto;
+	float:left;
+	text-align: left;
+	
+	line-height: normal;
+	position: relative;
+	height: 132px
+}
+
+.feature-items-td-right .feature-items-td-right-top{
+	height: 132px
+}
+

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)https://miyu.qq.com/assets/result.html?tab=1&ADTAG=&kw=%E9%9B%B6%E9%A3%9F -->
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+{if isset($subKeyWords)}
+<meta name="keywords" content="{$subKeyWords}">
+{/if}
+<meta name="description" content="更懂你的实时优惠播报站-让优惠触手可及">
+<title>{$keyWord}_{$subtitle}</title>
+<link rel="dns-prefetch" href="{$host}">
+<link rel="stylesheet" href="/public/static/css/base.css">
+<link rel="stylesheet" href="/public/static/css/result.css">
+<script src="/public/static/js/jquery-3.2.1.min.js"></script>
+{if isset($isDetails) && $isDetails}
+<script src="/public/static/js/goods_list.js"></script>
+{/if}
+</head>
+<body>
+	<div class="container">
+		<!--[if lte IE 7 ]>
+    <div id="J_BrowserUpdate" class="browser-update">
+    </div>
+    <![endif]-->
+		{include file="../../public/header" /}
+		<div class="row recommend-category-header-row">
+			<div class="main">
+				<div class="recommend-category-header" id="R-result-tabs">
+					<ul class="recommend-category-tabs pull-left">
+						{if isset($headerTryCate) && is_array($headerTryCate) && count($headerTryCate)>0}
+						{foreach $headerTryCate as $vo}
+						<a class="result-nav-tab" href="/try/{$vo.id}_1.html"
+							>{$vo.cate_name}</a>
+						{/foreach}
+						{/if}
+					</ul>
+					{if isset($count)}
+					<div class="recommend-category-update pull-right">
+						为您找到<span id="R-search-keywords" class="font-weight"></span>的搜索结果，共<span
+							id="R-search-num" class="font-weight">{$count}</span>条
+					</div>
+					{/if}
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<div class="result-section">
+			<div class="main mt-15">
+				<div class="result-tab-container" id="R-result-content">
+					<div class="result-tab-content active" tab="1" id="R-god">
+						<div class="result-tab-pane">
+							<div class="feature-items">
+
+
+							{if is_array($list)}
+								{foreach $list as $vo}
+
+								<div class="feature-items-tr item" itemId="{$vo.nid|urlIdcode=###,true}">
+									<div class="feature-items-td" index="0">
+										{if isset($isDetails) && $isDetails}
+										<a target="_blank"
+											href="/goods/{$vo.nid|urlIdcode=###,true}.html"  itemId="{$vo.nid|urlIdcode=###,true}"
+											>{/if}<img
+											src="{$taobao_img_url}{$vo.pictUrl}{$img_size.small}" class="size-110" style="margin: 11px;">
+											{if isset($isDetails) && $isDetails}
+											</a>{/if}
+
+									</div>
+									<div class="feature-items-td-right">
+										<div
+											class="feature-items-td-right-top">
+											<div class="
+											feature-items-td" index="1">
+											<div class="item_title">
+												 {if isset($isDetails) && $isDetails}<a target="_blank"  itemId="{$vo.nid|urlIdcode=###,true}"
+													href="/goods/{$vo.nid|urlIdcode=###,true}.html"
+													 title="{$vo.title}">{/if}{$vo.title}{if isset($isDetails) && $isDetails}</a>{/if}
+											</div>
+
+										</div>
+										<div class="feature-items-td" index="2">券后价{$vo.zkFinalPriceWap-$vo.couponAmount/100
+											}元</div>
+										<div class="feature-items-td" index="3">
+
+											<span class="td-discount">券:{$vo.couponAmount/100 }元</span>
+
+										</div>
+										<div class="feature-items-td" index="4">现价:{$vo.zkFinalPriceWap}元</div>
+										<div class="feature-items-td" index="5">
+											<div class="feature-items-td5-container">
+												<span class="inline-block item"  itemId="{$vo.nid|urlIdcode=###,true}">领取内部优惠券</span>
+
+											</div>
+										</div>
+									</div>
+
+
+									<div class="item-col2-bottom">
+										<div class="item-time pull-left" style="color: #666;">已售:{if $vo.biz30Day>9999}{$vo.biz30Day/10000|round=###,2}万{else}{$vo.biz30Day}{/if}件</div>
+										<div class="item-split pull-left"></div>
+										<div class="item-time pull-left" style="color: #666;">来源:{if $vo.userType==0}淘宝{else}天猫{/if}</div>
+										<div class="item-split pull-left"></div>
+										<div class="item-time pull-left" style="color: #666;">优惠券总数:{$vo.couponTotalCount}</div>
+										<div class="item-split pull-left"></div>
+										<div class="item-time pull-left" style="color: #666;">已领取:{$vo.couponSendCount}</div>
+										<div class="item-split pull-left"></div>
+										<div class="item-time pull-left" style="color: #666;">优惠券使用时间:{$vo.couponEffectiveStartTime/1000|date="Y-m-d",###}~{$vo.couponEffectiveEndTime/1000|date="Y-m-d",###} </div>
+										
+										
+									</div> 
+								</div>
+
+
+
+							</div>
+
+							{/foreach}
+						{/if}
+
+						</div>
+						<div class="pagination-cont">
+							<ul class="pagination" id="R-pagination">
+								{if isset($isDetails) && $isDetails}
+									{if $page.startPage!=$page.nowPage}
+									<li class="prev"><a
+										href="/goods/{$keyword_id}_{$page.startPage}.html">&lt;</a></li>
+									{/if}
+									{foreach name="page.page" item="vo" }
+									<li class="page {if $vo==$page.nowPage} active {/if}"><a
+										href="/goods/{$keyword_id}_{$vo}.html">{$vo}</a></li>
+									{/foreach}
+									{if $page.endPage!=$page.nowPage}
+									<li class="next"><a
+										href="/goods/{$keyword_id}_{$page.pageCount}.html">&gt;</a></li>
+									{/if}
+								{else}
+									{if $page.isPrevPage.status}
+										<li class="prev"><a
+										href="/index.php?q={$keyWord}&page={$page.isPrevPage.page}">&lt;</a></li>
+									{/if}
+										<li class="page  active"><a
+										href="/index.php?q={$keyWord}&page={$nowPage}">{$nowPage}</a></li>
+									{if $page.isNextPage.status}
+										<li class="next"><a
+										href="/index.php?q={$keyWord}&page={$page.isNextPage.page}">&gt;</a></li>
+									{/if}
+								{/if}
+								
+							</ul>
+						</div>
+					</div>
+					<div class="feature-sidebar">
+						{include file="../../public/advertisement" /}
+					</div>
+					<div class="fnClear"></div>
+				</div>
+				<div class="result-tab-content" tab="2" id="R-cbg">
+					<div class="result-tab-pane">
+						<div class="feature-items"></div>
+					</div>
+				</div>
+				<div class="fnClear"></div>
+			</div>
+		</div>
+	</div>
+	</div>
+	{include file="../../public/footer" /}
+
+</body>
+
+</html>

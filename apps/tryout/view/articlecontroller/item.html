@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<meta name="description" content="{if isset($description)}{$description}{/if}">
+<title>{$item.item.title}_{$subtitle}</title>
+<meta name="keywords" content="{if isset($keyWords)}{$keyWords}{/if}">
+<link rel="dns-prefetch" href="{$host}">
+<link rel="stylesheet" href="/public/static/css/base.css">
+<link rel="stylesheet" href="/public/static/css/tryout.css">
+<script src="/public/static/js/jquery-3.2.1.min.js"></script>
+<script src="/public/static/js/item.js"></script>
+</head>
+<script>
+var item={$item.item.tryItemId|urlIdcode=###,true};
+</script>
+<body>
+	<div class="container">
+		<!--[if lte IE 7 ]>
+    <div id="J_BrowserUpdate" class="browser-update">
+    </div>
+    <![endif]-->
+		{include file="../../public/header" /}
+		<div class="main" id="D-main">
+			<div class="d-top">
+				<div class="d-top-container">
+					<div class="d-top-layer">
+						<div class="crumbs-items pull-left" id="M-crumbs">
+							<a class="crumbs-item crumbs-item-0" href="/"><span>当前位置：</span><span
+								class="crumbs-item-title">全部试用</span></a> <a
+								class="crumbs-item crumbs-item-1" href="/try/{$cate.id}_1.html"
+								target="_blank">&nbsp;&nbsp;&gt;&nbsp;&nbsp;<span
+								class="crumbs-item-title">{$cate.cate_name}</span></a>
+						</div>
+						<div class="come">来源:淘宝</div>
+
+					</div>
+					<div class="d-top-content">
+						<div class="d-top-content-left item">
+							<div class="d-large-thumbnail">
+								<img src="{$taobao_img_url}tfscom/{$item.item.picUrl}">
+							</div>
+
+						</div>
+						<div class="d-top-content-right">
+							<div class="d-goods-title">{$item.item.title}</div>
+							<div class="d-goods-price">
+								<span class="d-goods-price-origin mr-10 nowprice">现价:{$item.item.price}元</span>
+							</div>
+							<div class="d-goods-price">
+								<span class=" d-goods-price-now mr-10 sold">试用时间:{$item.submitTime/1000|date="Y-m-d",###}</span>
+							</div>
+							<div class="d-goods-price">
+								<span class=" d-goods-price-now mr-10 sold">卖家:{$item.user.nick}</span>
+							</div>
+							<div class="d-goods-price">
+								<span class="d-goods-price-now mr-10 sold">试用情况:{foreach
+									$item.score as $vo}{$vo.label}:{$vo.value}分;{/foreach}</span>
+							</div>
+							<div class="d-goods-price">
+								<span class="d-goods-price-now mr-10 sold">{foreach
+									$item.personal as $vo}{$vo.label}:{$vo.value};{/foreach}</span>
+
+
+
+							</div>
+
+							<a class="d-goods-redirect-link item" target="_blank"
+								isconvert="1">直达商品链接</a>
+
+							<div class="statement">
+								<p style="color: #999;">声明：商品的价格与折扣仅供参考，信息可能根据时间变化，商家调整而过期。敬请理解</p>
+							</div>
+
+						</div>
+						<div class="fnClear"></div>
+					</div>
+
+				</div>
+			</div>
+			<div class="d-bottom">
+				<div class="d-bottom-left">
+					<div
+						class="d-recommend-reason today-section-top-color color-bg-white">
+						<div class="d-recommend-reason-title border-bottom-e5">
+							<div class="section-title pull-left">宝贝整体</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="d-recommend-reason-content">
+							<div class="content">{$item.overall.content}</div>
+							{if condition="isset($item.overall.pics) &&
+							is_array($item.overall.pics) && count($item.overall.pics)>0"}
+							{foreach $item.overall.pics as $vo}
+							<div class="item">
+								<img src="{$vo}" />
+							</div>
+							{/foreach}{/if}
+						</div>
+
+
+						<div class="d-recommend-reason-title border-bottom-e5">
+							<div class="section-title pull-left">亮点与细节</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="d-recommend-reason-content">
+
+							{if condition="isset($item.highlight) &&
+							is_array($item.highlight) && count($item.highlight)>0"} {foreach
+							$item.highlight as $vo}
+							<div class="content">{$vo.content}</div>
+							<div class="item">
+								<img src="{$vo.pic}" />
+							</div>
+							{/foreach}{/if}
+						</div>
+
+
+						<div class="d-recommend-reason-title border-bottom-e5">
+							<div class="section-title pull-left">试用过程与体验</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="d-recommend-reason-content">
+
+							{if condition="isset($item.experience) &&
+							is_array($item.experience) && count($item.experience)>0"}
+							{foreach $item.experience as $vo}
+							<div class="content">{$vo.content}</div>
+							<div class="item">
+								<img src="{$vo.pic}" />
+							</div>
+							{/foreach}{/if}
+						</div>
+
+						<div class="d-recommend-reason-title border-bottom-e5">
+							<div class="section-title pull-left">试用心得</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="d-recommend-reason-content">
+							<div class="line1">优点:{$item.conclusion.pros}</div>
+							<div class="line2">缺点:{$item.conclusion.cons}</div>
+						</div>
+					</div>
+
+					{if condition="isset($commentData) && is_array($commentData) &&
+					count($commentData)>0"}
+					<div
+						class="d-comment color-bg-white mt-15 featurenums-section-top-color">
+						<div class="d-comment-title border-bottom-e5">
+							<div class="section-title pull-left">图文评价</div>
+							<a class="section-more pull-right item" target="_blank"
+								isconvert="1">更多评价&gt;</a>
+							<div class="clearfix"></div>
+						</div>
+
+
+						{foreach $commentData.data as $vo}
+
+						<div class="d-comment-items">
+							<div class="d-comment-item">
+								<div class="d-comment-item-top">
+									<div class="d-comment-nickname pull-left">{$vo.displayUserNick}</div>
+									<div class="d-comment-time pull-left">{$vo.rateDate}</div>
+									<div class="d-comment-time pull-left">{$vo.auctionSku}</div>
+								</div>
+								<div class="d-comment-content">{$vo.rateContent}</div>
+								{if isset($vo.pics) && is_array($vo.pics) && count($vo.pics)>0}
+								<div class="d-comment-pictures">
+									<ul class="d-comment-pictures-items">
+										{foreach $vo.pics as $pic}
+										<li><img src="{$taobao_img_url}{$pic}_50x50"
+											large-src="{$taobao_img_url}{$pic}_50x50">
+											<div class="d-comment-pictures-items-arrow-down"></div></li>
+										{/foreach}
+										<div class="fnClear"></div>
+									</ul>
+
+								</div>
+
+								{/if}
+							</div>
+						</div>
+						{/foreach}
+
+					</div>
+					{/if}
+
+
+					{if condition="isset($askeverybodyList) &&
+					is_array($askeverybodyList) && count($askeverybodyList)>0"}
+					<link rel="stylesheet" href="/public/static/css/askeverybody.css">
+					<div
+						class="d-comment color-bg-white mt-15 featurenums-section-top-color">
+						<div class="d-comment-title border-bottom-e5">
+							<div class="section-title pull-left">大家说</div>
+							<span class="section-more pull-right item">更多说法&gt;</span>
+							<div class="clearfix"></div>
+						</div>
+
+						{foreach $askeverybodyList as $vo}
+						<div class="kg-rate-ct-review-item">
+							<div class="from-whom">
+								<img class="avatar"
+									src="/public/static/images/askbodyAveal.png_40x40.jpg">
+								<div>{$vo.nick}</div>
+							</div>
+							<div class="review-details kg-rate-wd-ask-around-detail">
+								<div class="q-or-a q">
+									<span class="icon-type">问</span>
+									<div class="detail-wrapper">
+										<div class="tb-tbcr-content heavier">{$vo.question}</div>
+										<div class="kg-rate-info-ops tb-tbcr-mt">
+											<div class="info-part">{$vo.gmtCreate}</div>
+										</div>
+									</div>
+								</div>
+
+								{foreach $vo.answers as $item}
+
+								<div class="q-or-a a">
+									<span class="icon-type">答</span>
+									<div class="detail-wrapper">
+										<div class="tb-tbcr-content">{$item.desc}</div>
+
+										<div class="kg-rate-info-ops tb-tbcr-mt">
+											<div class="info-part">
+												<span class="mark-buyer-seller">已买的人</span>
+												{$item.user.nick}
+											</div>
+											<div class="info-part">{$item.createTime}</div>
+											<ul class="ops">
+												<li><span class="J_KgRate_AskAround_Like op-btn">赞
+												</span> <span class="J_KgRate_AskAround_LikeNum tb-tbcr-num">({$item.totalLike})</span>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								{/foreach}
+
+
+								<div class="q-or-a J_KgRate_AskAround_MoreAnswers more">
+									共 {$vo.count} 个回答 {if $vo.count>count($vo.answers)}<span
+										class="J_KgRate_AskAround_MoreAnswers_State state-more item">查看更多</span>{/if}
+								</div>
+
+							</div>
+						</div>
+						{/foreach}
+
+					</div>
+					{/if}
+
+
+
+				</div>
+				<div class="d-bottom-right">
+					<div class="feature-sidebar">{include
+						file="../../public/advertisement" /}</div>
+				</div>
+				<div class="fnClear"></div>
+			</div>
+		</div>
+	</div>
+	{include file="../../public/footer" /}
+
+
+</body>
+</html>

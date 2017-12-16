@@ -1,0 +1,30 @@
+<script type="text/javascript" src="/public/static/player/cyberplayer.js"></script>
+<script type="text/javascript">
+    //https://cloud.video.taobao.com/play/u/1752728070/p/1/e/6/t/1/d/ld/50054334585.mp4
+
+    var player = cyberplayer("playercontainer").setup({
+        width: 680, // 宽度，也可以支持百分比(不过父元素宽度要有)
+        height: 448, // 高度，也可以支持百分比
+        title: "{$item.title}", // 标题
+        file: "{$item.products.video.videoUrl}", // 播放地址
+        image:"http://{$item.products.video.videoCover.picUrl}" , // 预览图
+        autostart: false, // 是否自动播放
+        stretching: "uniform", // 拉伸设置
+        repeat: false, // 是否重复播放
+        volume: 100, // 音量
+        controls: true, // controlbar是否显示
+        starttime: 0, // 视频开始播放时间点(单位s)，如果不设置，则可以从上次播放时间点续播
+        /*logo: { // logo设置
+            linktarget: "_blank",
+            margin: 45,
+            hide: true,
+            position: "top-right", // 位置
+            file: "/public/static/images/logo.png" // 图片地址
+        },*/
+        ak: "90a7f56d53914532878612e857b743d8" // 公有云平台注册即可获得accessKey
+    });
+</script>
+
+<div class="video2" style="margin:0 auto; width:680px; height:auto; ">
+    <div id="playercontainer" ></div>
+</div>

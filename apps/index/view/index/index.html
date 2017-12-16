@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="keywords" content="{$title}">
+<meta name="description" content="{$description}">
+<title>{$title}</title>
+<link rel="dns-prefetch" href="{$host}">
+<link rel="stylesheet" href="/public/static/css/base.css">
+<link rel="stylesheet" href="/public/static/css/index.css">
+<script src="/public/static/js/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+	{include file="../../public/header" /}
+	<div id="container">
+		<div
+			style="text-align: center; height: 50px; line-height: 50px; background-color: #f11a60; font-size: 25px; color: #FFFFFF;">
+			复制标题或关键字查优惠券</div>
+		<div class="search d1">
+			<form class="indexForm" action="/index.php" method="get">
+				<input type="text" name="q" placeholder="输入关键词查询淘宝优惠券">
+				<button type="submit"></button>
+			</form>
+		</div>
+
+		<div
+			style="text-align: center; height: 50px; line-height: 50px; background-color: #f11a60; font-size: 25px; color: #FFFFFF;">
+			使用教程</div>
+		<center style="margin-bottom:50px">
+			<br>复制宝贝标题后，到这里粘贴。<br>
+			<br>形如：<font color="red"><b>春季打底裤女外穿夏季薄款韩版2017新款女裤黑色九分裤子百搭小脚</b></font><br>
+			<br>也可以输入关键字查找，比如：<font color="red"><b>新款女裤</b></font>
+			<p style="text-align: center;">
+			</p>
+		</center>
+
+	</div>
+	{include file="../../public/footer" /}
+
+</body>
+</html>

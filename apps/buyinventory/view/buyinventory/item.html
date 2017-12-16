@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="{if isset($description)}{$description}{/if}">
+    <title>{$item.title}{if isset($item.subTitle) && !empty($item.subTitle)}_{$item.subTitle}{/if}_{$subtitle}</title>
+    <meta name="keywords" content="{if isset($keyWords)}{$keyWords}{/if}">
+    <link rel="dns-prefetch" href="{$host}">
+    <link rel="stylesheet" href="/public/static/css/base.css">
+    <link rel="stylesheet" href="/public/static/css/buyinventory.css">
+    <script src="/public/static/js/jquery-3.2.1.min.js"></script>
+    <script src="/public/static/js/item.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <!--[if lte IE 7 ]>
+    <div id="J_BrowserUpdate" class="browser-update">
+    </div>
+    <![endif]-->
+    {include file="../../public/header" /}
+    <div class="main" id="D-main">
+        <div class="d-top">
+            <div class="d-top-container">
+                <div class="d-top-layer">
+                    <div class="crumbs-items pull-left" id="M-crumbs">
+                        <a class="crumbs-item crumbs-item-0" href="/"><span>当前位置：</span><span
+                                class="crumbs-item-title">首页</span></a> <a
+                            class="crumbs-item crumbs-item-1" href="/buyinventory/{$cate.id}_1.html"
+                            target="_blank">&nbsp;&nbsp;&gt;&nbsp;&nbsp;<span
+                            class="crumbs-item-title">{$cate.cate_name}</span></a>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+        <div class="d-bottom">
+            <div class="d-bottom-left">
+                <div
+                        class="d-recommend-reason today-section-top-color color-bg-white">
+                    <div class="d-recommend-reason-title border-bottom-e5">
+                        <div class="section-title pull-left">{$item.title}</div>
+                        <div class="come">来源:淘宝</div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="d-recommend-reason-content">
+                        <div class="content">{$item.summary }</div>
+                    </div>
+
+                    {if $item.type==1}
+                    {foreach $item.richText as $vo}
+                    {if isset($vo.picture) && is_array($vo.picture)}
+
+                    <div class="pic">
+                        <img src="{$vo.picture.picUrl}"/>
+                    </div>
+
+                    {elseif isset($vo.text ) && !empty($vo.text) && $vo.type==1}
+
+                    <div class="content">{$vo.text}</div>
+
+                    {elseif isset($vo.text ) && !empty($vo.text) && isset($vo.type) && $vo.type==0}
+
+                    <div class="section-title">{$vo.text}</div>
+                    {elseif isset($vo.item ) && !empty($vo.item)}
+
+                    <div class="pic">
+                        <img src="{$vo.item.item_pic}"/>
+
+                        <div class="price">
+
+
+                        </div>
+
+                    </div>
+                    <div class="content">{$vo.item.itemDescription}</div>
+                    {/if}
+
+
+                    {/foreach}
+                    {elseif  $item.type==2}
+
+                    {elseif $item.type==3}
+
+                    <div class="video" style="text-align:center ;">
+
+                    </div>
+                    <script>
+                        var buyinventoryId={$item.id};
+                    </script>
+                    <script src="/public/static/js/buyinventoryItem.js"></script>
+
+
+
+                        {foreach $item.products.list  as $vo}
+                            <div class="item">
+                                <div class="imgs"
+                                ><img src="{$vo.item_pic}"
+                                      ></div>
+                                <div class="detail">
+                                    <span  class="des"
+                                    >{$vo.itemTitle}</span>
+                                                        <div class="priceDiv">
+                                                            <span class="price">￥{$vo.itemPriceDTO.price.item_current_price}</span>
+                                                        </div>
+                                                        <div class="itemImg" >
+                                                            <img class="imgwh"
+                                                                 src="/public/static/images/item_go.jpg"></div>
+                                </div>
+                            </div>
+                        {/foreach}
+                    {/if}
+
+                </div>
+
+
+            </div>
+            <div class="d-bottom-right">
+                <div class="feature-sidebar">{include
+                    file="../../public/advertisement" /}
+                </div>
+            </div>
+            <div class="fnClear"></div>
+        </div>
+    </div>
+</div>
+{include file="../../public/footer" /}
+
+
+</body>
+</html>

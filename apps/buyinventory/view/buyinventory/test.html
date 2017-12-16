@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+
+<style>
+    .pic {
+        border: 0px solid black;
+        position: relative;
+        box-sizing: border-box;
+        display: flex;
+        -moz-box-orient: vertical;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+    }
+
+    .pic .imgs {
+        border: 0px solid black;
+        position: relative;
+        box-sizing: border-box;
+        display: flex;
+        -moz-box-orient: vertical;
+        flex-direction: column;
+        align-content: flex-start;
+        flex-shrink: 0;
+        vertical-align: middle;
+        background-color: rgb(250, 250, 250);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    .price_info {
+        border: 0px solid black;
+        position: absolute;
+        box-sizing: border-box;
+        display: flex;
+        -moz-box-orient: horizontal;
+        flex-direction: row;
+        align-content: center;
+        flex-shrink: 0;
+        bottom: 40.48px;
+        right: 40.48px;
+        z-index: 2;
+        height: 94.4533px;
+        -moz-box-align: center;
+        align-items: center;
+        border-radius: 168.667px;
+        background-image: linear-gradient(to right, rgb(255, 102, 100), rgb(239, 51, 65));
+        padding: 20.24px 50.6px 20.24px 43.8533px;
+    }
+
+    .price_info .price {
+        border: 0px solid black;
+        position: relative;
+        box-sizing: border-box;
+        display: block;
+        -moz-box-orient: vertical;
+        flex-direction: column;
+        align-content: flex-start;
+        flex-shrink: 0;
+        font-size: 47.2267px;
+        color: rgb(255, 255, 255);
+    }
+
+    .price_info .line {
+        border: 0px solid black;
+        position: relative;
+        box-sizing: border-box;
+        display: block;
+        -moz-box-orient: vertical;
+        flex-direction: column;
+        align-content: flex-start;
+        flex-shrink: 0;
+        font-size: 40.48px;
+        color: rgb(255, 255, 255);
+        opacity: 0.6;
+        padding-left: 40.48px;
+        padding-right: 40.48px;
+    }
+
+    .price_info .detail {
+        border: 0px solid black;
+        position: relative;
+        box-sizing: border-box;
+        display: block;
+        -moz-box-orient: vertical;
+        flex-direction: column;
+        align-content: flex-start;
+        flex-shrink: 0;
+        font-size: 40.48px;
+        color: rgb(255, 255, 255);
+    }
+
+
+</style>
+
+<body>
+<div class="pic">
+    <div class="imgs">
+        <img src="https://img.alicdn.com/bao/uploaded/i3/3161393975/TB1vZM1hY_I8KJjy1XaXXbsxpXa_!!0-item_pic.jpg_430x430q90.jpg"
+             width="830" height="430">
+    </div>
+    <div class="price_info">
+        <!-- empty --><span
+            class="price">￥299.00</span>
+        <!-- empty --><span
+            class="line">|</span><span
+            class="detail">查看详情</span>
+        <!-- empty --></div>
+</div>
+
+
+<style>
+    .item {
+        margin-top: 30px;
+        border: 0px solid black;
+        position: relative;
+        box-sizing: border-box;
+        display: flex;
+        -moz-box-orient: horizontal;
+        flex-direction: row;
+        align-content: flex-start;
+        flex-shrink: 0;
+        height: 210.347px;
+        width: auto;
+        background-color: rgb(250, 250, 250);
+        padding: 3.37333px;
+    }
+
+    .item .imgs {
+        border: 0px solid black;
+        position: relative;
+        box-sizing: border-box;
+        display: flex;
+        -moz-box-orient: vertical;
+        flex-direction: column;
+        align-content: flex-start;
+        flex-shrink: 0;
+        height: 203.6px;
+        width: 203.6px;
+        vertical-align: middle;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    .item .detail {
+        border: 0px solid black;
+        position: relative;
+        box-sizing: border-box;
+        display: flex;
+        -moz-box-orient: vertical;
+        flex-direction: column;
+        place-content: flex-start center;
+        flex-shrink: 0;
+        height: 203.6px;
+        -moz-box-pack: center;
+        padding-left: 40.48px;
+        padding-right: 182.16px;
+        padding-top: 20.24px;
+        width: 680.44px;
+    }
+
+    .item .detail .des {
+        border: 0px solid black;
+        position: relative;
+        box-sizing: border-box;
+        display: -webkit-box;
+        -moz-box-orient: vertical;
+        flex-direction: column;
+        align-content: flex-start;
+        flex-shrink: 0;
+        font-size: 20.2267px;
+        font-weight: 300;
+        color: rgb(62, 62, 62);
+        line-height: 30.84px;
+        width: 557.8px;
+        overflow: hidden;
+    }
+
+    .item .detail .priceDiv {
+        border: 0px solid black;
+        position: relative;
+        box-sizing: border-box;
+        display: flex;
+        -moz-box-orient: horizontal;
+        flex-direction: row;
+        align-content: flex-start;
+        flex-shrink: 0;
+        -moz-box-align: center;
+        align-items: center;
+        font-size: 47.2267px;
+        line-height: 70.84px;
+        padding-top: 33.7333px;
+    }
+
+    .item .detail .priceDiv .price {
+        border: 0px solid black;
+        position: relative;
+        box-sizing: border-box;
+        display: block;
+        -moz-box-orient: vertical;
+        flex-direction: column;
+        align-content: flex-start;
+        flex-shrink: 0;
+        font-size: 47.2267px;
+        line-height: 70.84px;
+        font-weight: 300;
+        color: rgb(255, 80, 0);
+        margin-right: 18.5533px;
+    }
+
+    .item .detail .itemImg {
+        border: 0px solid black;
+        position: absolute;
+        box-sizing: border-box;
+        display: flex;
+        -moz-box-orient: vertical;
+        flex-direction: column;
+        place-content: flex-start center;
+        flex-shrink: 0;
+        width: 67.4667px;
+        height: 67.4667px;
+        top: 118.067px;
+        border-radius: 67.4667px;
+        background-color: rgb(255, 80, 0);
+        -moz-box-pack: center;
+        -moz-box-align: center;
+        align-items: center;
+        right: 0px;
+    }
+
+    .item .detail .itemImg .imgwh {
+        display: flex;
+        width: 23.6133px;
+        height: 42.1667px;
+    }
+
+</style>
+
+<div class="item">
+    <div class="imgs"
+    ><img src="http://gw.alicdn.com/tfscom/i3/1710482305/TB25OgwjWigSKJjSsppXXabnpXa_!!1710482305.jpg_790x10000Q75.jpg"
+          ></div>
+    <div class="detail">
+        <span  class="des"
+        >【巧厨烘焙】展艺优级棉白糖 细白绵砂糖糖粉 调味品烘焙原料500g</span>
+        <div class="priceDiv">
+            <span class="price">￥8.50</span>
+            </div>
+        <div class="itemImg" >
+            <img class="imgwh"
+                 src="//gw.alicdn.com/tfs/TB1hU_kXgMPMeJjy1XbXXcwxVXa-42-75.png_110x10000.jpg"></div>
+    </div>
+</div>
+
+
+</body>
+</html>

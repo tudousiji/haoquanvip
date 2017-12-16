@@ -1,0 +1,83 @@
+<script src="/public/static/js/header.js"></script>
+<div class="header row" id="header">
+			<div class="header-top" _hover-ignore="1">
+				<div class="main">
+					<div class="pull-left">你好，欢迎来到好券vip(专业的淘宝优惠券推荐网站)</div>
+					<div class="pull-right">
+						
+							<a href="javascript:void(0);" onclick="SetHome(this,'{$host}');">设为首页</a>
+							 <span
+							class="header-top-right-split">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+<a href="javascript:void(0);" onclick="AddFavorite('我的网站',location.href)">收藏本站</a>
+ <span
+							class="header-top-right-split">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+<a href="javascript:void(0);" onclick=" toDesktop(location.href，'我的网站')">保存到桌面</a>
+ 
+							
+							
+					</div>
+				</div>
+			</div>
+			<div class="header-middle" _hover-ignore="1">
+				<div class="main">
+					<a class="header-logo pull-left" href="/">
+						<img src="/public/static/images/logo.png">
+					</a>
+					<div class="header-features pull-right">
+						<div class="header-feature">
+							<i class="i1"></i>全网神价好货
+						</div>
+						<div class="header-feature">
+							<i class="i2"></i>人工智能推荐
+						</div>
+						<div class="header-feature">
+							<i class="i3"></i>每日实时更新
+						</div>
+					</div>
+					<form enctype="application/x-www-form-urlencoded"
+						class="header-search pull-left" method="GET"
+						action="/search.php"  rel="nofollow" id="header-search">
+						  <input
+							class="header-search-input" id="header-search-input" name="q"
+							placeholder="输入关键字搜索全网内部隐藏优惠券" type="text"> <input
+							class="header-search-btn" id="header-search-btn" value=""
+							type="submit">
+							{if isset($randHeaderHotSearchWord) && is_array($randHeaderHotSearchWord) && count($randHeaderHotSearchWord)>0}
+						<div class="header-search-keywords">
+					
+							<span class="header-search-keywords-title">热门搜索：</span>
+							{foreach $randHeaderHotSearchWord as $vo}
+							<a
+								class="header-search-keywords-item active" target="_blank"
+								href="/goods/{$vo.id}_1.html">{$vo.keyword}</a>
+							{/foreach}
+
+						</div>
+						{/if}
+					</form>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+			<div class="navbar-section" id="header-navbar">
+				<div class="main">
+					<div class="navbar-items">
+						<a class="navbar-item" href="/">首页</a>
+						
+						{if isset($indexCate) && is_array($indexCate) && count($indexCate)>0 && false}
+						{foreach $indexCate as $vo}
+						<a class="navbar-item {if isset($indexCateId) && !empty($indexCateId) && is_numeric($indexCateId) && $indexCateId==$vo.id}active{/if}"
+							href="/indexcate/{$vo.id}.html">{$vo.cate_name}</a> 
+							{/foreach}
+						{/if}
+
+						{if isset($buyinventoryCate) && is_array($buyinventoryCate) && count($buyinventoryCate)>0 }
+						{foreach $buyinventoryCate as $vo}
+						<a class="navbar-item"
+						   href="/buyinventory/{$vo.id}_1.html">{$vo.cate_name}</a>
+						{/foreach}
+						{/if}
+							
+					</div>
+				</div>
+			</div>
+		</div>

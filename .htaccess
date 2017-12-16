@@ -1,0 +1,27 @@
+<IfModule mod_rewrite.c>
+
+  RewriteEngine On
+  
+  RewriteRule goods/([0-9]*)_([0-9]*).html$  /index.php/keyWords/Keyword/lists?keyword_id=$1&page=$2 [NC]
+  RewriteRule goods/([0-9]*).html$  /index.php/keyWords/Keyword/goodsItem?itemId=$1 [NC]
+  RewriteRule goods/getItemUrl/([0-9]*)  /index.php/keyWords/Keyword/getItemUrl?itemId=$1 [NC]
+  RewriteRule indexcate/([0-9]*).html$  /index.php/Index/Index/indexcate?id=$1 [NC]
+  RewriteRule indexcate/getIndexCateUrl/([0-9]*)  /index.php/Index/Index/getIndexCateUrl?id=$1 [NC]
+  
+  RewriteRule try/([0-9]*).html$  /index.php/tryOut/Articlecontroller/item?id=$1 [NC]
+  RewriteRule try/([0-9]*)_([0-9]*).html$  /index.php/tryOut/Articlecontroller/lists?cateId=$1&page=$2 [NC]
+  
+  RewriteRule buyinventory/([0-9]*).html$  /index.php/buyinventory/Buyinventory/item?id=$1 [NC]
+  RewriteRule buyinventory/([0-9]*)_([0-9]*).html$  /index.php/buyinventory/Buyinventory/lists?cateId=$1&page=$2 [NC]
+  RewriteRule buyinventory/videoHtml_([0-9]*).html$  /index.php/buyinventory/Buyinventory/getVideoHtml?id=$1 [NC]
+  
+  #RewriteRule index.php?q=(.*)$  /index.php/keyWords/Keyword/q=$1
+  #RewriteRule index.php(.?) /index.php/keyWords/Keyword/q 
+  
+  #RewriteCond %{QUERY_STRING} ^q=.+$
+  #RewriteRule search.php\?q=(.*)$ /index.php/keyWords/Keyword/q=$1 
+  RewriteRule ^index\.html$ /index.php
+  
+  RewriteCond %{QUERY_STRING} ^q=.+$
+  RewriteRule ^search\.php$ /index.php/keyWords/Keyword/q 
+</IfModule>

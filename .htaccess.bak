@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+
+  RewriteEngine On
+  
+  RewriteRule goods/([0-9]*)_([0-9]*).html  /index.php/keyWords/Keyword/lists?keyword_id=$1&page=$2 [NC]
+  RewriteRule goods/([0-9]*).html  /index.php/keyWords/Keyword/goodsItem?itemId=$1 [NC]
+  RewriteRule goods/getItemUrl/([0-9]*)  /index.php/keyWords/Keyword/getItemUrl?itemId=$1 [NC]
+  RewriteRule indexcate/([0-9]*).html  /index.php/Index/Index/indexcate?id=$1 [NC]
+  RewriteRule indexcate/getIndexCateUrl/([0-9]*)  /index.php/Index/Index/getIndexCateUrl?id=$1 [NC]
+  #RewriteRule index.php?q=(.*)$  /index.php/keyWords/Keyword/q=$1
+  RewriteRule index.php(.?) /index.php/keyWords/Keyword/q 
+</IfModule>
